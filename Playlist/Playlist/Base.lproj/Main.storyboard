@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Playlist" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AoW-h4-F2i">
+                                <rect key="frame" x="0.0" y="443" width="375" height="216"/>
+                            </pickerView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZzQ-Rr-AmC">
+                                <rect key="frame" x="16" y="28" width="343" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="2Nn-cH-bWq"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Uhb-RC-nyA" customClass="TrackTableViewCell" customModule="Playlist" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uhb-RC-nyA" id="EBx-ct-0cI">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7A-6H-hW6">
+                                                    <rect key="frame" x="8" y="11" width="281" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="et9-7Z-kQC">
+                                                    <rect key="frame" x="297" y="6" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="nAl-J4-4dv"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Play"/>
+                                                    <connections>
+                                                        <action selector="playTrackWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CcP-GC-VoR"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="y7A-6H-hW6" firstAttribute="leading" secondItem="EBx-ct-0cI" secondAttribute="leadingMargin" id="3tx-86-jIe"/>
+                                                <constraint firstItem="y7A-6H-hW6" firstAttribute="centerY" secondItem="et9-7Z-kQC" secondAttribute="centerY" id="VFF-O7-otV"/>
+                                                <constraint firstItem="et9-7Z-kQC" firstAttribute="leading" secondItem="y7A-6H-hW6" secondAttribute="trailing" constant="8" symbolic="YES" id="cTk-KC-9YJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="et9-7Z-kQC" secondAttribute="trailing" constant="8" id="dNx-2X-LF8"/>
+                                                <constraint firstItem="et9-7Z-kQC" firstAttribute="centerY" secondItem="EBx-ct-0cI" secondAttribute="centerY" id="pVH-e9-LGg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="playTrackButton" destination="et9-7Z-kQC" id="fNC-Fd-GIr"/>
+                                            <outlet property="trackLabel" destination="y7A-6H-hW6" id="SOf-d9-Fma"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="kp6-V7-CcK"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="voi-pN-A7X"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7no-Ug-odb" userLabel="Restart Track Button">
+                                <rect key="frame" x="66" y="367" width="50" height="30"/>
+                                <state key="normal" title="Restart"/>
+                                <connections>
+                                    <action selector="restartTrackButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Mj-mT-R9B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EX5-3y-L8U" userLabel="Pause Track Button">
+                                <rect key="frame" x="267" y="367" width="42" height="30"/>
+                                <state key="normal" title="Pause"/>
+                                <connections>
+                                    <action selector="pauseTrackButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="clU-Jx-a8l"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DpV-C7-5qr" userLabel="Add Track Button">
+                                <rect key="frame" x="16" y="367" width="343" height="30"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="Add Track"/>
+                                <connections>
+                                    <action selector="addTrackButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OGX-cZ-pLi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AoW-h4-F2i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8by-ca-cbk"/>
+                            <constraint firstItem="ZzQ-Rr-AmC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="9JR-d6-ZwN"/>
+                            <constraint firstItem="7no-Ug-odb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="347" id="A41-ne-DOs"/>
+                            <constraint firstItem="7no-Ug-odb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="AnG-GF-zsd"/>
+                            <constraint firstItem="ZzQ-Rr-AmC" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="HjF-dV-knu"/>
+                            <constraint firstItem="DpV-C7-5qr" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="LZQ-c3-DNj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DpV-C7-5qr" secondAttribute="bottom" constant="270" id="M99-bP-lzA"/>
+                            <constraint firstItem="EX5-3y-L8U" firstAttribute="leading" secondItem="DpV-C7-5qr" secondAttribute="trailing" constant="-92" id="MNG-rr-ouZ"/>
+                            <constraint firstItem="DpV-C7-5qr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="NZS-6r-6Pz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EX5-3y-L8U" secondAttribute="trailing" constant="50" id="OaX-8G-QTr"/>
+                            <constraint firstItem="DpV-C7-5qr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="PkP-MM-eXD"/>
+                            <constraint firstItem="ZzQ-Rr-AmC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aWY-pl-Snc"/>
+                            <constraint firstItem="DpV-C7-5qr" firstAttribute="leading" secondItem="7no-Ug-odb" secondAttribute="trailing" constant="-100" id="dse-lX-hCu"/>
+                            <constraint firstItem="DpV-C7-5qr" firstAttribute="top" secondItem="ZzQ-Rr-AmC" secondAttribute="bottom" constant="39" id="fga-vo-v7d"/>
+                            <constraint firstItem="DpV-C7-5qr" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="iZ6-LB-ixs"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AoW-h4-F2i" secondAttribute="bottom" constant="8" symbolic="YES" id="l5C-Z9-DsU"/>
+                            <constraint firstItem="AoW-h4-F2i" firstAttribute="centerX" secondItem="DpV-C7-5qr" secondAttribute="centerX" id="nND-sG-upN"/>
+                            <constraint firstItem="EX5-3y-L8U" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="347" id="tLx-73-QgT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addTrackButton" destination="DpV-C7-5qr" id="YaW-Li-amJ"/>
+                        <outlet property="playlistTableView" destination="ZzQ-Rr-AmC" id="JeT-aQ-eYj"/>
+                        <outlet property="trackPickerView" destination="AoW-h4-F2i" id="iuN-Fe-MC9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+        </scene>
+    </scenes>
+</document>
